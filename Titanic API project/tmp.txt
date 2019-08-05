@@ -1,0 +1,13 @@
+create dockerfile
+docker build .
+docker run --help
+
+
+
+
+
+
+
+sudo docker build -t registry.heroku.com/titanic-api-jerem/web:latest .
+sudo docker push registry.heroku.com/titanic-api-jerem/web:latest
+sudo heroku container:release web -a titanic-api-jerem
