@@ -10,12 +10,11 @@ import os
 app = Flask(__name__)
 #basedir = os.path.abspath(os.path.dirname(__file__))
 DATABASE_URL = os.environ['DATABASE_URL']
-#DATABASE_URL = 'postgres://zrqhgahz:XVI1tVLrMvMMOYK_QgQUhBRr9qp8n9Zr@manny.db.elephantsql.com:5432/zrqhgahz'
 
 # O.R.M.:
 engine = create_engine(DATABASE_URL)
-if os.environ['IS_DB_FILLED'] == 'no':
-    export_csv_to_db(engine)
+#if os.environ['IS_DB_FILLED'] == 'no':
+#export_csv_to_db(engine)
 
 #Database
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
@@ -31,6 +30,9 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
 # routes
+@app.route('/')
+def hellothere():
+    return "app running"
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -75,7 +77,6 @@ def deleteTable():
 def db_():
     export_csv_to_db(engine)
     return "Your new table has been created"
-
 
 #Run server
 if __name__=='__main__':
