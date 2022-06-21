@@ -8,7 +8,7 @@ joblib==0.13.2
 MarkupSafe==1.1.1
 marshmallow==2.19.5
 marshmallow-sqlalchemy==0.17.0
-numpy==1.16.4
+numpy==1.22.0
 pandas==0.25.0
 psycopg2==2.8.3
 psycopg2-binary==2.8.3
